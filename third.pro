@@ -15,9 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        fileobserver.cpp \
-        filesizescreamer.cpp \
         main.cpp \
+        typestrategy.cpp \
         utils.cpp
 
 # Default rules for deployment.
@@ -30,6 +29,5 @@ DISTFILES +=
 HEADERS += \
     abstractstrategy.h \
     fileinformation.h \
-    fileobserver.h \
-    filesizescreamer.h \
+    typestrategy.h \
     utils.h

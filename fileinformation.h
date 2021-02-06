@@ -6,10 +6,9 @@ class FileInformation
 {
 public:
     QString name;
-    quint64 absoluteSize;
     double relativeSize;
 
-    FileInformation(QString givenName, quint64 givenAbsoluteSize, double givenRelativeSize):name(givenName), absoluteSize(givenAbsoluteSize), relativeSize(givenRelativeSize){};
+    FileInformation(QString givenName, double givenRelativeSize):name(givenName), relativeSize(givenRelativeSize){};
 };
 
 #endif // FILEINFORMATION_H

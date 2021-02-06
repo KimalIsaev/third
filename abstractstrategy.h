@@ -6,8 +6,8 @@
 class AbstractStrategy
 {
 public:
-    explicit AbstractStrategy() {};
-    virtual ~AbstractStrategy() {};
+    explicit AbstractStrategy();
+    virtual ~AbstractStrategy();
     virtual QList<FileInformation> Explore (const QString &) = 0;
 };
 
