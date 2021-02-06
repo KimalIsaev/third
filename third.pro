@@ -28,6 +28,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 HEADERS += \
+    abstractstrategy.h \
+    fileinformation.h \
     fileobserver.h \
     filesizescreamer.h \
     utils.h
