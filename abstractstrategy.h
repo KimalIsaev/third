@@ -2,13 +2,16 @@
 #define ABSTRACTSTRATEGY_H
 #include <QString>
 #include <QList>
-#include <fileinformation.h>
+#include <QFileInfo>
+#include <QPair>
 class AbstractStrategy
 {
+protected:
+    unsigned long long symLinkSize(const QFileInfo &);
 public:
-    explicit AbstractStrategy();
+    AbstractStrategy();
     virtual ~AbstractStrategy();
-    virtual QList<FileInformation> Explore (const QString &) = 0;
+    virtual QList<QPair<QString, double>> calculate (const QString &) = 0;
 };
 
 #endif // ABSTRACTSTRATEGY_H
