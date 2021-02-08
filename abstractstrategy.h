@@ -7,6 +7,7 @@
 class AbstractStrategy
 {
 protected:
+    const double divisionByZero = 1.46;
     unsigned long long symLinkSize(const QFileInfo &);
 public:
     AbstractStrategy();

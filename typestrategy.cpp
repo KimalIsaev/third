@@ -16,10 +16,17 @@ QList<QPair<QString, double>> TypeStrategy::calculate(const QString &path)
     QMap<QString, unsigned long long> map;
     unsigned long long sizeOfAll = typeMap(path, map);
     QMapIterator<QString, unsigned long long> i(map);
-    while (i.hasNext()) {
-        i.next();
-        result.append(qMakePair(i.key(),
-                                double(i.value()) / double(sizeOfAll)));
+    if (sizeOfAll){
+        while (i.hasNext()) {
+            i.next();
+            result.append(qMakePair(i.key(),
+                                    double(i.value()) / double(sizeOfAll)));
+        }
+    } else {
+        while (i.hasNext()) {
+            i.next();
+            result.append(qMakePair(i.key(), divisionByZero));
+        }
     }
     return result;
 }
@@ -47,5 +54,7 @@ unsigned long long TypeStrategy::typeMap(const QString &path, QMap<QString,
         return dirSize;
     }
 
-    return pathInfo.size();
+    unsigned long long pathSize = pathInfo.size();
+    addSizeToMap(map, pathInfo.suffix(), pathSize);
+    return pathSize;
 }
