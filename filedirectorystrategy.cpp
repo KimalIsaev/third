@@ -43,16 +43,11 @@ QList<QPair<QString, double> > FileDirectoryStrategy::calculate(
     }
     QList<QPair<QString, double>> result;
     if (sizeOfAll) {
-        std::transform(temp.begin(), temp.end(), result.begin(),
-                       [sizeOfAll]
-                       (QPair<QString, unsigned long long> p)
-                       {return qMakePair(p.first, p.second/sizeOfAll);});
+        for(const auto &p : temp)
+            result.append(qMakePair(p.first, p.second/sizeOfAll));
     } else {
-        double tempDouble = divisionByZero;
-        std::transform(temp.begin(), temp.end(), result.begin(),
-                       [tempDouble]
-                       (QPair<QString, unsigned long long> p)
-                       {return qMakePair(p.first, tempDouble);});
+        for(const auto &p : temp)
+            result.append(qMakePair(p.first, divisionByZero));
     }
     return result;
 }

@@ -5,7 +5,6 @@
 #include <QFileInfo>
 #include <QPair>
 #include <QDirIterator>
-#include <algorithm>
 #include "abstractstrategy.h"
 
 class FileDirectoryStrategy : public AbstractStrategy
