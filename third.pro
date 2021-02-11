@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         abstractstrategy.cpp \
+        filedirectorystrategy.cpp \
         main.cpp \
         typestrategy.cpp \
         utils.cpp
@@ -29,5 +30,6 @@ DISTFILES +=
 
 HEADERS += \
     abstractstrategy.h \
+    filedirectorystrategy.h \
     typestrategy.h \
     utils.h

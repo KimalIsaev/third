@@ -1,6 +1,9 @@
 #ifndef FILESTRATEGY_H
 #define FILESTRATEGY_H
+#include <QString>
+#include <QList>
 #include <QFileInfo>
+#include <QPair>
 #include <QMap>
 #include <QDirIterator>
 #include "abstractstrategy.h"

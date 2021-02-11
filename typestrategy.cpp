@@ -1,7 +1,8 @@
 #include "typestrategy.h"
 
 void TypeStrategy::addSizeToMap(QMap<QString, unsigned long long> &map,
-                                const QString &fileType, unsigned long long size)
+                                const QString &fileType,
+                                unsigned long long size)
 {
     if (map.contains(fileType)){
         map[fileType] += size;
