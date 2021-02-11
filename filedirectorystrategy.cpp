@@ -1,29 +1,36 @@
 #include "filedirectorystrategy.h"
 
+QFileInfoList FileDirectoryStrategy::dirFileInfoToEntries(
+        const QFileInfo &dirInfo)
+{
+    QDir dir(dirInfo.absoluteFilePath());
+    QFileInfoList dirEntries =
+            dir.entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries);
+    return dirEntries;
+}
+
 unsigned long long FileDirectoryStrategy::directorySize(
         const QFileInfo &dirInfo)
 {
     unsigned long long dirSize = 0;
-    QDirIterator dir(dirInfo.absoluteFilePath());
-    while (dir.hasNext()) dirSize += sizeFromPath(dir.next());
+    QFileInfoList dirEntries = dirFileInfoToEntries(dirInfo);
+    for(const auto &entry : dirEntries) dirSize += sizeFromFileInfo(entry);
     return dirSize;
 }
 
-unsigned long long FileDirectoryStrategy::sizeFromPath(
-        const QString &path)
+unsigned long long FileDirectoryStrategy::sizeFromFileInfo(
+        const QFileInfo &info)
 {
-    QFileInfo pathInfo(path);
+    bool exist = info.exists();
+    if (!exist) return 0;
 
-    bool pathExist = pathInfo.exists();
-    if (!pathExist) return 0;
+    bool isLink = info.isSymLink();
+    if (isLink) return symLinkSize(info);
 
-    bool isPathLink = pathInfo.isSymLink();
-    if (isPathLink) return symLinkSize(pathInfo);
+    bool isDir = info.isDir();
+    if (isDir) return directorySize(info);
 
-    bool isPathDir = pathInfo.isDir();
-    if (isPathDir) return directorySize(pathInfo);
-
-    unsigned long long pathSize = pathInfo.size();
+    unsigned long long pathSize = info.size();
     return pathSize;
 }
 
@@ -31,20 +38,20 @@ QList<QPair<QString, double> > FileDirectoryStrategy::calculate(
         const QString &path)
 {
     QList<QPair<QString, unsigned long long>> temp;
-    QDirIterator dir(path);
-    unsigned long long sizeOfAll=0, sizeOfElement;
-    QString elementPath, elementName;
-    while (dir.hasNext()) {
-        elementPath = dir.next();
-        elementName = QFileInfo(elementPath).fileName();
-        sizeOfElement = sizeFromPath(elementPath);
-        sizeOfAll += sizeOfElement;
-        temp.append(qMakePair(elementName, sizeOfElement));
+    QFileInfoList dirEntries = dirFileInfoToEntries(QFileInfo(path));
+    unsigned long long sizeOfEntry, sizeOfAll=0;
+    QString entryName;
+    for(const auto &entry : dirEntries) {
+        entryName = entry.fileName();
+        sizeOfEntry = sizeFromFileInfo(entry);
+        sizeOfAll += sizeOfEntry;
+        temp.append(qMakePair(entryName, sizeOfEntry));
     }
     QList<QPair<QString, double>> result;
     if (sizeOfAll) {
         for(const auto &p : temp)
-            result.append(qMakePair(p.first, p.second/sizeOfAll));
+            result.append(qMakePair(p.first,
+                                    double(p.second)/double(sizeOfAll)));
     } else {
         for(const auto &p : temp)
             result.append(qMakePair(p.first, divisionByZero));

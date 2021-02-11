@@ -1,4 +1,5 @@
 #include <QCoreApplication>
+#include <QStringList>
 #include <QString>
 #include <QList>
 #include <QPair>
@@ -22,26 +23,25 @@ QList<QPair<QString, QString>> doubleToString(
                                     lessThanMinimal));
         } else {
             result.append(qMakePair(p.first,
-                                    QString::number(k*p.second)+units));
+                                    QString::number(k*p.second, 'f', 2)
+                                    +units));
         }
     }
     return result;
 }
 
 
-QList<QString> listToTable(const QList<QPair<QString, QString>> &list,
+QStringList listToTable(const QList<QPair<QString, QString>> &list,
                            const QString &nameOfFirstColumn,
-                           const QString &nameOfSecondColumn,
-                           unsigned char numberOfTabsBetweenColumns)
+                           const QString &nameOfSecondColumn)
 {
-    QString tabString;
-    for (unsigned char i=0; i<numberOfTabsBetweenColumns; i++)
-        tabString +=QString("\t");
-
-    QList<QString> result;
-    result.append(nameOfFirstColumn + tabString + nameOfSecondColumn);
+    unsigned char n = nameOfFirstColumn.size();
+    QString space = " ";
+    QStringList result;
+    result.append(nameOfFirstColumn + space + nameOfSecondColumn);
     for(const auto &p : list)
-            result.append(p.first + tabString + p.second);
+            result.append(space.repeated(n - p.second.size())
+                          + p.second + space + p.first);
     return result;
 }
 
@@ -49,11 +49,11 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     AbstractStrategy *strategy = new FileDirectoryStrategy;
-    QList<QString> output =
+    QStringList output =
         listToTable(doubleToString(
                         strategy->calculate("E:\\p\\Kema\\third"),
-                                   100.0, 0.001, QString("%")),
-                    QString("NAME"), QString("RELATIVE SIZE"), 3);
+                                   100.0, 0.0001, QString("%")),
+                    QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
         std::cout << line.toStdString() << std::endl;
     return a.exec();
