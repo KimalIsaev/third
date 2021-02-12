@@ -15,7 +15,7 @@ public:
     QList<QPair<QString, double>> calculate(const QString &);
     TypeStrategy(){};
 private:
-    unsigned long long typeMap(const QString &,
+    unsigned long long typeMap(const QFileInfo &info,
                                QMap<QString, unsigned long long> &);
     void addSizeToMap(QMap<QString, unsigned long long> &map,
                       const QString &fileType,

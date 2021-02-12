@@ -6,14 +6,14 @@
 #include <iostream>
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"
+#include "typestrategy.h"
 
 QList<QPair<QString, QString>> doubleToString(
         const QList<QPair<QString, double>> &list, double k,
         double minimal, QString units)
 {
-    QString lessThanMinimal = QString("<")
-                              + QString::number(k*minimal)
-                              + units;
+    QString lessThanMinimal = QString::number(k*minimal)
+                              + units + QString(">");
     QList<QPair<QString, QString>> result;
     bool isSmallerThenMinimal;
     for(const auto &p : list){
@@ -24,7 +24,7 @@ QList<QPair<QString, QString>> doubleToString(
         } else {
             result.append(qMakePair(p.first,
                                     QString::number(k*p.second, 'f', 2)
-                                    +units));
+                                    + units + QString(" ")));
         }
     }
     return result;
@@ -50,6 +50,15 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     AbstractStrategy *strategy = new FileDirectoryStrategy;
     QStringList output =
+        listToTable(doubleToString(
+                        strategy->calculate("E:\\p\\Kema\\third"),
+                                   100.0, 0.0001, QString("%")),
+                    QString("RELATIVE SIZE"), QString("NAME"));
+    for(const auto &line : output)
+        std::cout << line.toStdString() << std::endl;
+    std::cout << std::endl;
+    strategy = new TypeStrategy;
+    output =
         listToTable(doubleToString(
                         strategy->calculate("E:\\p\\Kema\\third"),
                                    100.0, 0.0001, QString("%")),

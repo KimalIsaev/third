@@ -15,7 +15,7 @@ QList<QPair<QString, double>> TypeStrategy::calculate(const QString &path)
 {
     QList<QPair<QString, double>> result;
     QMap<QString, unsigned long long> map;
-    unsigned long long sizeOfAll = typeMap(path, map);
+    unsigned long long sizeOfAll = typeMap(QFileInfo(path), map);
     QMapIterator<QString, unsigned long long> i(map);
     if (sizeOfAll){
         while (i.hasNext()) {
@@ -32,30 +32,31 @@ QList<QPair<QString, double>> TypeStrategy::calculate(const QString &path)
     return result;
 }
 
-unsigned long long TypeStrategy::typeMap(const QString &path, QMap<QString,
-                                         unsigned long long> &map)
+unsigned long long TypeStrategy::typeMap(
+        const QFileInfo &info, QMap<QString, unsigned long long> &map)
 {
-    QFileInfo pathInfo(path);
+    bool exist = info.exists();
+    if (!exist) return 0;
 
-    bool pathExist = pathInfo.exists();
-    if (!pathExist) return 0;
-
-    bool isPathLink = pathInfo.isSymLink();
-    if (isPathLink) {
-        unsigned long long pathSize = symLinkSize(pathInfo);
+    bool isLink = info.isSymLink();
+    if (isLink) {
+        unsigned long long pathSize = symLinkSize(info);
         addSizeToMap(map, "SymLink", pathSize);
         return pathSize;
     }
 
-    bool isPathDir = pathInfo.isDir();
-    if (isPathDir) {
+    bool isDir = info.isDir();
+    if (isDir) {
         unsigned long long dirSize = 0;
-        QDirIterator dir(pathInfo.absoluteFilePath());
-        while (dir.hasNext()) dirSize += typeMap(dir.next(), map);
+        QDir dir = info.absoluteFilePath();
+        QFileInfoList dirEntries =
+                dir.entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries);
+        for (const auto &entry : dirEntries)
+            dirSize += typeMap(entry, map);
         return dirSize;
     }
 
-    unsigned long long pathSize = pathInfo.size();
-    addSizeToMap(map, pathInfo.suffix(), pathSize);
+    unsigned long long pathSize = info.size();
+    addSizeToMap(map, info.suffix(), pathSize);
     return pathSize;
 }
