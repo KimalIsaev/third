@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 //first test - filedirectorystrategy
     QStringList output =
         listToTable(doubleToString(
-                        strategy->calculate(""),
+                        strategy->calculate("..\\third"),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
       std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
     delete strategy;
-//third test - filedirectorystrategy with almost empty directory
+//fifith test - filedirectorystrategy with almost empty directory
     strategy = new FileDirectoryStrategy;
     output =
         listToTable(doubleToString(
@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
         std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
     delete strategy;
-//forth test - typestrategy with almost empty directory
+//sixth test - typestrategy with almost empty directory
     strategy = new TypeStrategy;
     output =
             listToTable(doubleToString(
