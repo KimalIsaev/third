@@ -52,60 +52,67 @@ int main(int argc, char *argv[])
 //first test - filedirectorystrategy
     QStringList output =
         listToTable(doubleToString(
-                        strategy->calculate("E:\\p\\Kema\\third"),
+                        strategy->calculate("..\\third"),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
         std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
+    delete strategy;
 //second test - typestrategy
     strategy = new TypeStrategy;
     output =
         listToTable(doubleToString(
-                        strategy->calculate("E:\\p\\Kema\\third"),
+                        strategy->calculate("..\\third"),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
         std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
+    delete strategy;
 //third test - filedirectorystrategy with empty directory
     strategy = new FileDirectoryStrategy;
     output =
         listToTable(doubleToString(
-                        strategy->calculate("E:\\p\\Kema\\third\\empty"),
+                        strategy->calculate("..\\third\\test\\empty"),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
         std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
+    delete strategy;
 //forth test - typestrategy with empty directory
     strategy = new TypeStrategy;
     output =
             listToTable(doubleToString(
-                            strategy->calculate("E:\\p\\Kema\\third\\empty"),
+                            strategy->calculate("..\\third\\test\\empty"),
                             100.0, 0.0001, QString("%")),
                         QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
       std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
+    delete strategy;
 //third test - filedirectorystrategy with almost empty directory
     strategy = new FileDirectoryStrategy;
     output =
         listToTable(doubleToString(
-                        strategy->calculate("E:\\p\\Kema\\third\\almost_empty"),
+                        strategy->calculate("..\\third\\test\\almost_empty"),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
         std::cout << line.toStdString() << std::endl;
     std::cout << std::endl;
+    delete strategy;
 //forth test - typestrategy with almost empty directory
     strategy = new TypeStrategy;
     output =
             listToTable(doubleToString(
-                            strategy->calculate("E:\\p\\Kema\\third\\almost_empty"),
+                            strategy->calculate("..\\third\\test\\almost_empty"),
                             100.0, 0.0001, QString("%")),
                         QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
       std::cout << line.toStdString() << std::endl;
+    std::cout << std::endl;
+    delete strategy;
     return a.exec();
 }

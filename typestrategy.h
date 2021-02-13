@@ -14,6 +14,7 @@ class TypeStrategy : public AbstractStrategy
 public:
     QList<QPair<QString, double>> calculate(const QString &);
     TypeStrategy(){};
+    ~TypeStrategy(){};
 private:
     unsigned long long typeMap(const QFileInfo &info,
                                QMap<QString, unsigned long long> &);

@@ -11,6 +11,7 @@ protected:
     unsigned long long symLinkSize(const QFileInfo &);
 public:
     AbstractStrategy(){};
+    virtual ~AbstractStrategy(){};
     virtual QList<QPair<QString, double>> calculate (const QString &) = 0;
 };
 

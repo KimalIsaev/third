@@ -13,6 +13,7 @@ class FileDirectoryStrategy : public AbstractStrategy
 public:
     QList<QPair<QString, double>> calculate(const QString &);
     FileDirectoryStrategy(){};
+    ~FileDirectoryStrategy(){};
 private:
     unsigned long long directorySize(const QFileInfo &);
     unsigned long long sizeFromFileInfo(const QFileInfo &);
