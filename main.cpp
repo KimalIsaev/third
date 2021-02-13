@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 //first test - filedirectorystrategy
     QStringList output =
         listToTable(doubleToString(
-                        strategy->calculate("..\\third"),
+                        strategy->calculate(""),
                                    100.0, 0.0001, QString("%")),
                     QString("RELATIVE SIZE"), QString("NAME"));
     for(const auto &line : output)
