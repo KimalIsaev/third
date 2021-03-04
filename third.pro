@@ -19,6 +19,7 @@ SOURCES += \
         filedirectorystrategy.cpp \
         main.cpp \
         mainwindow.cpp \
+        table.cpp \
         typestrategy.cpp \
         util.cpp
 
@@ -33,6 +34,7 @@ HEADERS += \
     abstractstrategy.h \
     filedirectorystrategy.h \
     mainwindow.h \
+    table.h \
     typestrategy.h \
     util.h
 
