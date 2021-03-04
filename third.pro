@@ -1,4 +1,4 @@
-QT -= gui
+QT     += core gui widgets
 
 CONFIG += c++1z console
 CONFIG -= app_bundle
@@ -18,6 +18,7 @@ SOURCES += \
         abstractstrategy.cpp \
         filedirectorystrategy.cpp \
         main.cpp \
+        mainwindow.cpp \
         typestrategy.cpp \
         util.cpp
 
@@ -31,5 +32,9 @@ DISTFILES +=
 HEADERS += \
     abstractstrategy.h \
     filedirectorystrategy.h \
+    mainwindow.h \
     typestrategy.h \
     util.h
+
+FORMS += \
+    mainwindow.ui
