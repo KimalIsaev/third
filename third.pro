@@ -18,7 +18,8 @@ SOURCES += \
         abstractstrategy.cpp \
         filedirectorystrategy.cpp \
         main.cpp \
-        typestrategy.cpp
+        typestrategy.cpp \
+        util.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -30,4 +31,5 @@ DISTFILES +=
 HEADERS += \
     abstractstrategy.h \
     filedirectorystrategy.h \
-    typestrategy.h
+    typestrategy.h \
+    util.h
