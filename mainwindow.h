@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QAbstractTableModel>
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"
 #include "typestrategy.h"
@@ -23,6 +24,10 @@ public:
 private:
     Ui::MainWindow *ui_ = nullptr;
     QList<QPair<QString, double>> calculation_;
+public slots:
+    void redefineToTypeStrategy();
+    void redefineToFileDirectoryStrategy();
+    void changeDir(QModelIndex);
 };
 
 #endif // MAINWINDOW_H

@@ -22,30 +22,32 @@
      <widget class="QTableView" name="tableView"/>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayoutFormatButton">
       <item>
        <widget class="QPushButton" name="fileFormat">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>file
+format</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="typeFormat">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>type
+format</string>
         </property>
        </widget>
       </item>
@@ -53,7 +55,72 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>fileFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redefineToFileDirectoryStrategy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>749</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>typeFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redefineToTypeStrategy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>749</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeView</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeDir(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>246</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>redefineToTypeStrategy()</slot>
+  <slot>redefineToFileDirectoryStrategy()</slot>
+  <slot>changeDir(QModelIndex)</slot>
+ </slots>
 </ui>
