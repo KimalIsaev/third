@@ -18,7 +18,7 @@ bool Table::removeRows(int row, int count, const QModelIndex& index)
 {
     Q_UNUSED(index);
     beginRemoveRows(QModelIndex(), row, row+count-1);
-    for (int i=row; i < row+count; ++i) {
+    for (int i=row+count-1; i >=row ; i--) {
         files_.removeAt(i);
     }
     endRemoveRows();

@@ -2,12 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QAbstractTableModel>
+#include <QFileSystemModel>
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"
 #include "typestrategy.h"
 #include "util.h"
-
+#include "table.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,8 +22,22 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui_ = nullptr;
+    enum STRATEGY{
+        TYPE_STRATEGY,
+        FILE_DIRECTORY_STRATEGY
+    };
     QList<QPair<QString, double>> calculation_;
+    QString currentDir_;
+    AbstractStrategy *strategy_ = nullptr;
+    Ui::MainWindow *ui_ = nullptr;
+    QFileSystemModel *dirModel_ = nullptr;
+    Table *table_ = nullptr;
+    QString defaultDir = QString("..");
+    void printCalculation();
+    void setDirectoryTree();
+    void redefineStrategy(unsigned char);
+    void recalculateCurrentDir();
+    void setTableView();
 public slots:
     void redefineToTypeStrategy();
     void redefineToFileDirectoryStrategy();
