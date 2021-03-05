@@ -4,8 +4,6 @@ Table::Table(){}
 void Table::replace(const QList<QPair<QString,QString>> &l){
     removeRows(0, files_.size(), QModelIndex());
     size_t n = l.size();
-    insertRows(0, n, QModelIndex());
-
     beginInsertRows(QModelIndex(), 0, n-1);
     files_ = l;
     endInsertRows();
