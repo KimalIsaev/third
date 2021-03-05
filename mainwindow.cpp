@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_->tableView->verticalHeader()->setVisible(false);
     strategy_ = new TypeStrategy();
     table_ = new Table();
+    setTableView();
 }
 
 void MainWindow::setDirectoryTree(){
@@ -27,7 +28,6 @@ void MainWindow::changeDir(QModelIndex index)
 
 void MainWindow::printCalculation(){
     table_->replace(util::doubleToString(calculation_));
-    setTableView();
 }
 
 void MainWindow::setTableView(){
