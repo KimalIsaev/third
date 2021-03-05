@@ -7,9 +7,6 @@ void Table::replace(const QList<QPair<QString,QString>> &l){
     beginInsertRows(QModelIndex(), 0, n-1);
     files_ = l;
     endInsertRows();
-    emit dataChanged(QAbstractItemModel::createIndex(n-1, SIZE_COLUMN),
-                     QAbstractItemModel::createIndex(n-1, NAME_COLUMN),
-                     {Qt::DisplayRole});
 }
 
 bool Table::removeRows(int row, int count, const QModelIndex& index)
