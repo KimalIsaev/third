@@ -32,6 +32,7 @@ QList<QPair<QString, double>> TypeStrategy::calculate(const QString &path)
     return result;
 }
 
+
 unsigned long long TypeStrategy::typeMap(
         const QFileInfo &info, QMap<QString, unsigned long long> &map)
 {

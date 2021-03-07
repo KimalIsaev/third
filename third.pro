@@ -1,6 +1,6 @@
 QT     += core gui widgets charts
 
-CONFIG += c++1z console
+CONFIG += c++1z charts
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
