@@ -29,16 +29,21 @@ private:
         TYPE_STRATEGY,
         FILE_DIRECTORY_STRATEGY
     };
+    enum CHART{
+        PIE_CHART,
+        BAR_CHART
+    };
     QList<QPair<QString, double>> calculation_;
     QString currentDir_;
     AbstractStrategy *strategy_ = nullptr;
-    AbstractChart *chart = nullptr;
+    AbstractChart *chart_ = nullptr;
     Ui::MainWindow *ui_ = nullptr;
     QFileSystemModel *dirModel_ = nullptr;
     Table *table_ = nullptr;
-    QString defaultDir = QString("..");
+    void drawCalculation();
     void printCalculation();
     void setDirectoryTree();
+    void redrawChart(unsigned char);
     void redefineStrategy(unsigned char);
     void recalculateCurrentDir();
     void setTableView();

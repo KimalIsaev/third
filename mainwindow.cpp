@@ -63,8 +63,31 @@ void MainWindow::redefineToFileDirectoryStrategy(){
     redefineStrategy(FILE_DIRECTORY_STRATEGY);
 }
 
+void MainWindow::redrawChart(unsigned char chartType){
+    delete chart_;
+    switch(chartType) {
+        case BAR_CHART:
+            chart_ = new BarChart();
+        break;
+        case PIE_CHART:
+            chart_ = new PieChart();
+        break;
+    }
+    drawCalculation();
+}
+
+void MainWindow::redrawToBarChart(){
+    redrawChart(BAR_CHART);
+}
+
+void MainWindow::redrawToPieChart(){
+    redrawChart(PIE_CHART);
+}
+
+
 MainWindow::~MainWindow()
 {
+    delete chart_;
     delete ui_;
     delete table_;
     delete strategy_;
