@@ -1,4 +1,4 @@
-QT -= gui
+QT     += core gui widgets
 
 CONFIG += c++1z console
 CONFIG -= app_bundle
@@ -18,7 +18,10 @@ SOURCES += \
         abstractstrategy.cpp \
         filedirectorystrategy.cpp \
         main.cpp \
-        typestrategy.cpp
+        mainwindow.cpp \
+        table.cpp \
+        typestrategy.cpp \
+        util.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -30,4 +33,10 @@ DISTFILES +=
 HEADERS += \
     abstractstrategy.h \
     filedirectorystrategy.h \
-    typestrategy.h
+    mainwindow.h \
+    table.h \
+    typestrategy.h \
+    util.h
+
+FORMS += \
+    mainwindow.ui
