@@ -163,10 +163,44 @@ format</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>barChartFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redrawToBarChart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pieChartFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redrawToPieChart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>redefineToTypeStrategy()</slot>
   <slot>redefineToFileDirectoryStrategy()</slot>
   <slot>changeDir(QModelIndex)</slot>
+  <slot>redrawToPieChart()</slot>
+  <slot>redrawToBarChart()</slot>
  </slots>
 </ui>

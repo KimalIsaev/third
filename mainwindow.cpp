@@ -6,11 +6,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_(new Ui::MainWindow)
 {
     ui_->setupUi(this);
-    setDirectoryTree();
-    ui_->tableView->verticalHeader()->setVisible(false);
+    chart_ = new PieChart();
     strategy_ = new TypeStrategy();
     table_ = new Table();
     setTableView();
+    setDirectoryTree();
+}
+
+void MainWindow::drawCalculation(){
+    ui_->chartView->setChart(chart_->listToChart(calculation_));
 }
 
 void MainWindow::setDirectoryTree(){
@@ -31,6 +35,7 @@ void MainWindow::printCalculation(){
 }
 
 void MainWindow::setTableView(){
+    ui_->tableView->verticalHeader()->setVisible(false);
     ui_->tableView->setModel(table_);
     ui_->tableView->setColumnWidth(0,60);
     ui_->tableView->setColumnWidth(1,600);
@@ -40,6 +45,7 @@ void MainWindow::recalculateCurrentDir()
 {
     calculation_ = strategy_->calculate(currentDir_);
     printCalculation();
+    drawCalculation();
 }
 
 void MainWindow::redefineStrategy(unsigned char strategyType){
