@@ -4,13 +4,13 @@ PieChart::PieChart(){}
 
 PieChart::~PieChart(){}
 
-QChart *PieChart::listToChart(const QList<QPair<QString, double>> &list)
+QtCharts::QChart *PieChart::listToChart(const QList<QPair<QString, double>> &list)
 {
-    QChart *chart = new QChart();
+    QtCharts::QChart *chart = new QtCharts::QChart();
     chart->setTitle("Pie chart");
-    QPieSeries *series = new QPieSeries(chart);
+    QtCharts::QPieSeries *series = new QtCharts::QPieSeries(chart);
     bool firstTime = true;
-    QPieSlice *slice;
+    QtCharts::QPieSlice *slice;
     for (const auto &data : list) {
         slice = series->append(data.first, data.second);
         if (firstTime){

@@ -4,14 +4,14 @@ BarChart::BarChart(){}
 
 BarChart::~BarChart(){}
 
-QChart *BarChart::listToChart(const QList<QPair<QString, double>> &list)
+QtCharts::QChart *BarChart::listToChart(const QList<QPair<QString, double>> &list)
 {
-    QChart *chart = new QChart();
+    QtCharts::QChart *chart = new QtCharts::QChart();
     chart->setTitle("Bar chart");
-    QBarSeries *series = new QBarSeries(chart);
-    QBarSet *set;
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries(chart);
+    QtCharts::QBarSet *set;
     for (const auto &data : list){
-        set = new QBarSet(data.first);
+        set = new QtCharts::QBarSet(data.first);
         *set << data.second;
         series->append(set);
     }

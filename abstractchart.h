@@ -4,14 +4,15 @@
 #include <QString>
 #include <QList>
 #include <QPair>
-#include "ui_mainwindow.h"
+//#include "ui_mainwindow.h"
+#include <QChart>
 
 class AbstractChart
 {
 public:
     AbstractChart();
     virtual ~AbstractChart();
-    virtual QChart *listToChart(const QList<QPair<QString, double>> &) = 0;
+    virtual QtCharts::QChart *listToChart(const QList<QPair<QString, double>> &) = 0;
 };
 
 #endif // ABSTRACTCHART_H
