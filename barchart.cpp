@@ -1,21 +1,23 @@
 #include "barchart.h"
 
-BarChart::BarChart(){}
+BarChart::BarChart()
+{
+    widget_ = new QtCharts::QChartView(&chart);
+}
 
 BarChart::~BarChart(){}
 
-QtCharts::QChart *BarChart::listToChart(const QList<QPair<QString, double>> &list)
+void BarChart::setData(const QList<QPair<QString, double>>& data)
 {
-    QtCharts::QChart *chart = new QtCharts::QChart();
-    chart->setTitle("Bar chart");
-    QtCharts::QBarSeries *series = new QtCharts::QBarSeries(chart);
+    chart.removeAllSeries();
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries(&chart);
     QtCharts::QBarSet *set;
-    for (const auto &data : list){
-        set = new QtCharts::QBarSet(data.first);
-        *set << data.second;
+    for (const auto &d : data){
+        set = new QtCharts::QBarSet(d.first);
+        *set << d.second;
         series->append(set);
     }
-    chart->addSeries(series);
-    chart->createDefaultAxes();
-    return chart;
+    chart.addSeries(series);
+    chart.createDefaultAxes();
 }
+

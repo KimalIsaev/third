@@ -1,16 +1,21 @@
 #ifndef BARCHART_H
 #define BARCHART_H
 
-#include "abstractchart.h"
+#include "abstractadapter.h"
+#include <QChartView>
+#include <QChart>
 #include <QBarSeries>
 #include <QBarSet>
 
-class BarChart : public AbstractChart
+class BarChart : public AbstractAdapter
 {
+    QtCharts::QChart chart;
+    QtCharts::QChart *listToChart(const QList<QPair<QString, double>> &);
 public:
     BarChart();
     ~BarChart();
-    QtCharts::QChart *listToChart(const QList<QPair<QString, double>> &);
+    void setData(const QList<QPair<QString, double>>&);
+
 };
 
 #endif // BARCHART_H

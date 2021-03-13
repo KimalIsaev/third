@@ -3,12 +3,13 @@
 #include <QWidget>
 #include <QAbstractItemModel>
 
-class abstractadapter
+class AbstractAdapter
 {
-    QWidget *widget;
+protected:
+    QWidget *widget_;
 public:
-    abstractadapter();
-    ~abstractadapter();
+    AbstractAdapter();
+    ~AbstractAdapter();
     QWidget *getWidget();
     virtual void setData(const QList<QPair<QString, double>>&);
 };

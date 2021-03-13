@@ -1,13 +1,13 @@
 #include "abstractadapter.h"
 
-abstractadapter::abstractadapter(){}
+AbstractAdapter::AbstractAdapter(){}
 
-abstractadapter::~abstractadapter()
+AbstractAdapter::~AbstractAdapter()
 {
-    delete widget;
+    delete widget_;
 }
 
-QWidget *abstractadapter::getWidget()
+QWidget *AbstractAdapter::getWidget()
 {
-    return widget;
+    return widget_;
 }
