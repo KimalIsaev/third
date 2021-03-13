@@ -22,7 +22,7 @@ SOURCES += \
         filedirectorystrategy.cpp \
         main.cpp \
         mainwindow.cpp \
-        piechart.cpp \
+        piechartadapter.cpp \
         table.cpp \
         typestrategy.cpp \
         util.cpp
@@ -41,7 +41,7 @@ HEADERS += \
     barchartadapter.h \
     filedirectorystrategy.h \
     mainwindow.h \
-    piechart.h \
+    piechartadapter.h \
     table.h \
     typestrategy.h \
     util.h
