@@ -1,17 +1,19 @@
 #include "piechart.h"
 
-PieChart::PieChart(){}
+PieChart::PieChart()
+{
+    chart_ = new QtCharts::QChart();
+    widget_ = new QtCharts::QChartView(chart_);
+}
 
 PieChart::~PieChart(){}
 
-QtCharts::QChart *PieChart::listToChart(const QList<QPair<QString, double>> &list)
+void PieChart::setData(const QList<QPair<QString, double>> &data)
 {
-    QtCharts::QChart *chart = new QtCharts::QChart();
-    chart->setTitle("Pie chart");
-    QtCharts::QPieSeries *series = new QtCharts::QPieSeries(chart);
+    QtCharts::QPieSeries *series = new QtCharts::QPieSeries(chart_);
     bool firstTime = true;
     QtCharts::QPieSlice *slice;
-    for (const auto &data : list) {
+    for (const auto &data : data) {
         slice = series->append(data.first, data.second);
         if (firstTime){
             slice->setLabelVisible();
@@ -20,6 +22,5 @@ QtCharts::QChart *PieChart::listToChart(const QList<QPair<QString, double>> &lis
     }
     series->setHorizontalPosition(0.5);
     series->setVerticalPosition(0.5);
-    chart->addSeries(series);
-    return chart;
+    chart_->addSeries(series);
 }

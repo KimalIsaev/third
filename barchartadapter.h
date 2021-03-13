@@ -9,8 +9,7 @@
 
 class BarChart : public AbstractAdapter
 {
-    QtCharts::QChart chart;
-    QtCharts::QChart *listToChart(const QList<QPair<QString, double>> &);
+    QtCharts::QChart *chart_;
 public:
     BarChart();
     ~BarChart();
