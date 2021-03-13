@@ -5,7 +5,7 @@
 #include <QFileSystemModel>
 #include "abstractchart.h"
 #include "piechart.h"
-#include "barchart.h"
+#include "barchartadapter.h"
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"
 #include "typestrategy.h"

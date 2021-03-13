@@ -18,7 +18,7 @@ SOURCES += \
         abstractadapter.cpp \
         abstractchart.cpp \
         abstractstrategy.cpp \
-        barchart.cpp \
+        barchartadapter.cpp \
         filedirectorystrategy.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -38,7 +38,7 @@ HEADERS += \
     abstractadapter.h \
     abstractchart.h \
     abstractstrategy.h \
-    barchart.h \
+    barchartadapter.h \
     filedirectorystrategy.h \
     mainwindow.h \
     piechart.h \
