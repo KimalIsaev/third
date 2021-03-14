@@ -3,14 +3,10 @@
 
 #include <QMainWindow>
 #include <QFileSystemModel>
-#include "abstractchart.h"
-#include "piechartadapter.h"
-#include "barchartadapter.h"
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"
 #include "typestrategy.h"
-#include "util.h"
-#include "table.h"
+#include "adaptercollection.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,25 +25,20 @@ private:
         TYPE_STRATEGY,
         FILE_DIRECTORY_STRATEGY
     };
-    enum CHART{
-        PIE_CHART,
-        BAR_CHART
-    };
-    QList<QPair<QString, double>> calculation_;
+    QWidget *buffWidget_;
+    QWidget *firstEverWidget_;
+    AdapterCollection adapterCollection_;
     QString currentDir_;
     AbstractStrategy *strategy_ = nullptr;
-    AbstractChart *chart_ = nullptr;
     Ui::MainWindow *ui_ = nullptr;
     QFileSystemModel *dirModel_ = nullptr;
-    Table *table_ = nullptr;
-    void drawCalculation();
-    void printCalculation();
+
     void setDirectoryTree();
-    void redrawChart(unsigned char);
-    void redefineStrategy(unsigned char);
+    void redraw(int);
+    void redefineStrategy(int);
     void recalculateCurrentDir();
-    void setTableView();
 public slots:
+    void redrawToTable();
     void redrawToBarChart();
     void redrawToPieChart();
     void redefineToTypeStrategy();

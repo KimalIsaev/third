@@ -16,7 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         abstractadapter.cpp \
-        abstractchart.cpp \
         abstractstrategy.cpp \
         adaptercollection.cpp \
         barchartadapter.cpp \
@@ -37,7 +36,6 @@ DISTFILES +=
 
 HEADERS += \
     abstractadapter.h \
-    abstractchart.h \
     abstractstrategy.h \
     adaptercollection.h \
     barchartadapter.h \

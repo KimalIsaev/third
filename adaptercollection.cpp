@@ -8,10 +8,14 @@ AdapterCollection::AdapterCollection()
     array_[BAR_CHART] = new BarChartAdapter;
 }
 
-void AdapterCollection::setAdapter(int i)
+bool AdapterCollection::setAdapter(int i)
 {
-    currentAdapter_ = i;
-    updateCurrentAdapter();
+    if (i!=currentAdapter_){
+        currentAdapter_ = i;
+        updateCurrentAdapter();
+        return true;
+    }
+    return false;
 }
 
 void AdapterCollection::setData(const QList<QPair<QString, double>> &data)

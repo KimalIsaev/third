@@ -6,7 +6,10 @@ BarChartAdapter::BarChartAdapter()
     widget_ = new QtCharts::QChartView(chart_);
 }
 
-BarChartAdapter::~BarChartAdapter(){}
+BarChartAdapter::~BarChartAdapter()
+{
+    delete widget_;
+}
 
 void BarChartAdapter::setData(const QList<QPair<QString, double>>& data)
 {

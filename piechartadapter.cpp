@@ -13,6 +13,7 @@ PieChartAdapter::~PieChartAdapter()
 
 void PieChartAdapter::setData(const QList<QPair<QString, double>> &data)
 {
+    chart_->removeAllSeries();
     QtCharts::QPieSeries *series = new QtCharts::QPieSeries(chart_);
     bool firstTime = true;
     QtCharts::QPieSlice *slice;

@@ -2,10 +2,7 @@
 
 AbstractAdapter::AbstractAdapter(){}
 
-AbstractAdapter::~AbstractAdapter()
-{
-    delete widget_;
-}
+AbstractAdapter::~AbstractAdapter(){}
 
 QWidget *AbstractAdapter::getWidget()
 {

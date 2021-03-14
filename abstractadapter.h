@@ -9,9 +9,9 @@ protected:
     QWidget *widget_;
 public:
     AbstractAdapter();
-    ~AbstractAdapter();
+    virtual ~AbstractAdapter();
     QWidget *getWidget();
-    virtual void setData(const QList<QPair<QString, double>>&);
+    virtual void setData(const QList<QPair<QString, double>>&)=0;
 };
 
 #endif // ABSTRACTADAPTER_H

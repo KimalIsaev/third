@@ -14,105 +14,97 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayoutFormatButton_2">
+     <layout class="QHBoxLayout" name="layout">
       <item>
-       <widget class="QPushButton" name="barChartFormat">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>bar
+       <layout class="QVBoxLayout" name="verticalLayoutFormatButton_2">
+        <item>
+         <widget class="QPushButton" name="barChartFormat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>bar
 chart</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pieChartFormat">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>pie
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pieChartFormat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>pie
 chart</string>
-        </property>
-       </widget>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="tableFormat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>table</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QTreeView" name="treeView"/>
       </item>
       <item>
-       <widget class="QChartView" name="chartView"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QTableView" name="tableView"/>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayoutFormatButton">
-      <item>
-       <widget class="QPushButton" name="fileFormat">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>file
-format</string>
-        </property>
-       </widget>
+       <widget class="QWidget" name="widget" native="true"/>
       </item>
       <item>
-       <widget class="QPushButton" name="typeFormat">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>type
+       <layout class="QVBoxLayout" name="verticalLayoutFormatButton">
+        <item>
+         <widget class="QPushButton" name="fileFormat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>file
 format</string>
-        </property>
-       </widget>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="typeFormat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>type
+format</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header>QtCharts</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -124,22 +116,6 @@ format</string>
     <hint type="sourcelabel">
      <x>246</x>
      <y>162</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>typeFormat</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>redefineToTypeStrategy()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>749</x>
-     <y>434</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -195,6 +171,38 @@ format</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>typeFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redefineToTypeStrategy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>749</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableFormat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redrawToTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>494</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>redefineToTypeStrategy()</slot>
@@ -202,5 +210,6 @@ format</string>
   <slot>changeDir(QModelIndex)</slot>
   <slot>redrawToPieChart()</slot>
   <slot>redrawToBarChart()</slot>
+  <slot>redrawToTable()</slot>
  </slots>
 </ui>

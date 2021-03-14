@@ -18,7 +18,7 @@ class AdapterCollection
 public:
     AdapterCollection();
     ~AdapterCollection();
-    void setAdapter(int);
+    bool setAdapter(int);
     void setData(const QList<QPair<QString, double>>& data);
     QWidget *getWidget();
     enum ADAPTER_NUMBER{

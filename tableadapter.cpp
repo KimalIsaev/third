@@ -38,3 +38,7 @@ QList<QPair<QString, QString>> TableAdapter::doubleToString(
 }
 
 
+TableAdapter::~TableAdapter()
+{
+    delete widget_;
+}
