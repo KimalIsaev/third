@@ -6,7 +6,10 @@ PieChartAdapter::PieChartAdapter()
     widget_ = new QtCharts::QChartView(chart_);
 }
 
-PieChartAdapter::~PieChartAdapter(){}
+PieChartAdapter::~PieChartAdapter()
+{
+    delete widget_;
+}
 
 void PieChartAdapter::setData(const QList<QPair<QString, double>> &data)
 {
