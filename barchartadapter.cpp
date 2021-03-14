@@ -1,14 +1,14 @@
 #include "barchartadapter.h"
 
-BarChart::BarChart()
+BarChartAdapter::BarChartAdapter()
 {
     chart_ = new QtCharts::QChart();
     widget_ = new QtCharts::QChartView(chart_);
 }
 
-BarChart::~BarChart(){}
+BarChartAdapter::~BarChartAdapter(){}
 
-void BarChart::setData(const QList<QPair<QString, double>>& data)
+void BarChartAdapter::setData(const QList<QPair<QString, double>>& data)
 {
     chart_->removeAllSeries();
     QtCharts::QBarSeries *series = new QtCharts::QBarSeries(chart_);

@@ -1,14 +1,14 @@
-#include "piechart.h"
+#include "piechartadapter.h"
 
-PieChart::PieChart()
+PieChartAdapter::PieChartAdapter()
 {
     chart_ = new QtCharts::QChart();
     widget_ = new QtCharts::QChartView(chart_);
 }
 
-PieChart::~PieChart(){}
+PieChartAdapter::~PieChartAdapter(){}
 
-void PieChart::setData(const QList<QPair<QString, double>> &data)
+void PieChartAdapter::setData(const QList<QPair<QString, double>> &data)
 {
     QtCharts::QPieSeries *series = new QtCharts::QPieSeries(chart_);
     bool firstTime = true;

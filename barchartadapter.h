@@ -7,12 +7,12 @@
 #include <QBarSeries>
 #include <QBarSet>
 
-class BarChart : public AbstractAdapter
+class BarChartAdapter : public AbstractAdapter
 {
     QtCharts::QChart *chart_;
 public:
-    BarChart();
-    ~BarChart();
+    BarChartAdapter();
+    ~BarChartAdapter();
     void setData(const QList<QPair<QString, double>>&);
 
 };

@@ -6,12 +6,12 @@
 #include <QChart>
 #include <QPieSeries>
 
-class PieChart : public AbstractAdapter
+class PieChartAdapter : public AbstractAdapter
 {
     QtCharts::QChart *chart_;
 public:
-    PieChart();
-    ~PieChart();
+    PieChartAdapter();
+    ~PieChartAdapter();
     void setData(const QList<QPair<QString, double>>&);
 };
 

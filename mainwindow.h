@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QFileSystemModel>
 #include "abstractchart.h"
-#include "piechart.h"
+#include "piechartadapter.h"
 #include "barchartadapter.h"
 #include "abstractstrategy.h"
 #include "filedirectorystrategy.h"

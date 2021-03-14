@@ -24,8 +24,8 @@ SOURCES += \
         mainwindow.cpp \
         piechartadapter.cpp \
         table.cpp \
-        typestrategy.cpp \
-        util.cpp
+        tableadapter.cpp \
+        typestrategy.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -43,8 +43,8 @@ HEADERS += \
     mainwindow.h \
     piechartadapter.h \
     table.h \
-    typestrategy.h \
-    util.h
+    tableadapter.h \
+    typestrategy.h
 
 FORMS += \
     mainwindow.ui

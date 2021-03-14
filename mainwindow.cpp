@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_(new Ui::MainWindow)
 {
     ui_->setupUi(this);
-    chart_ = new PieChart();
+    chart_ = new PieChartAdapter();
     strategy_ = new TypeStrategy();
     table_ = new Table();
     setTableView();
@@ -73,10 +73,10 @@ void MainWindow::redrawChart(unsigned char chartType){
     delete chart_;
     switch(chartType) {
         case BAR_CHART:
-            chart_ = new BarChart();
+            chart_ = new BarChartAdapter();
         break;
         case PIE_CHART:
-            chart_ = new PieChart();
+            chart_ = new PieChartAdapter();
         break;
     }
     drawCalculation();
