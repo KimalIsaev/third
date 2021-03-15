@@ -32,6 +32,7 @@ private:
     AbstractStrategy *strategy_ = nullptr;
     Ui::MainWindow *ui_ = nullptr;
     QFileSystemModel *dirModel_ = nullptr;
+    bool selected_ = false;
 
     void setDirectoryTree();
     void redraw(int);

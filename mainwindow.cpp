@@ -21,13 +21,14 @@ void MainWindow::setDirectoryTree(){
 
 void MainWindow::changeDir(QModelIndex index)
 {
+    selected_ = true;
     currentDir_ = dirModel_->filePath(index);
     recalculateCurrentDir();
 }
 
 void MainWindow::recalculateCurrentDir()
 {
-    adapterCollection_.setData(strategy_->calculate(currentDir_));
+    if (selected_) adapterCollection_.setData(strategy_->calculate(currentDir_));
 }
 
 void MainWindow::redefineStrategy(int strategyType){

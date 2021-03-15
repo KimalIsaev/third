@@ -3,9 +3,11 @@
 AdapterCollection::AdapterCollection()
 {
     array_ = new AbstractAdapter*[NUMBER_OF_ADAPTERS];
+    array_[EMPTY] = new EmptyAdapter;
     array_[TABLE] = new TableAdapter;
     array_[PIE_CHART] = new PieChartAdapter;
     array_[BAR_CHART] = new BarChartAdapter;
+    setAdapter(EMPTY);
 }
 
 bool AdapterCollection::setAdapter(int i)

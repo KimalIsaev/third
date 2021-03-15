@@ -19,6 +19,7 @@ SOURCES += \
         abstractstrategy.cpp \
         adaptercollection.cpp \
         barchartadapter.cpp \
+        emptyadapter.cpp \
         filedirectorystrategy.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     abstractstrategy.h \
     adaptercollection.h \
     barchartadapter.h \
+    emptyadapter.h \
     filedirectorystrategy.h \
     mainwindow.h \
     piechartadapter.h \

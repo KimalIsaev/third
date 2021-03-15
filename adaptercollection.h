@@ -6,7 +6,7 @@
 #include "tableadapter.h"
 #include "piechartadapter.h"
 #include "barchartadapter.h"
-
+#include "emptyadapter.h"
 
 
 class AdapterCollection
@@ -22,6 +22,7 @@ public:
     void setData(const QList<QPair<QString, double>>& data);
     QWidget *getWidget();
     enum ADAPTER_NUMBER{
+        EMPTY,
         TABLE,
         BAR_CHART,
         PIE_CHART,
